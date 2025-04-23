@@ -1,7 +1,16 @@
 package main
 
-import "fmt"
+import (
+	"HTMX/routes"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
-	fmt.Println("Helo")
+	router := gin.Default()
+
+	//router.GET("")
+
+	routes.RegisterRoutes(router)
+	router.Run(":8080")
 }
