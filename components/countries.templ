@@ -1,6 +1,16 @@
 package components 
 
+import "HTMX/models"
 
-templ CountryNames() {
-    <div></div>
+
+templ CountryNames(countries []models.Country) {
+    <div>
+        for _, country := range countries{
+            <div>
+            <h1>The Country is { country.Name }</h1>
+            <h2>It has {country.States}</h2>
+            </div>
+        }
+    </div>
+
 }
