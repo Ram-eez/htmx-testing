@@ -4,15 +4,20 @@ import (
 	"HTMX/components"
 	"HTMX/models"
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
 )
 
 func H1(c *gin.Context) {
 
-	components.Button_eg("click me").Render(c.Request.Context(), c.Writer)
+	nh := models.NewNowHandler(time.Now)
 
-	view := components.CountryNames(models.Countries)
-	view.Render(c.Request.Context(), c.Writer)
+	// components.Button_eg("click me").Render(c.Request.Context(), c.Writer)
+
+	// view := components.CountryNames(models.Countries)
+	// view.Render(c.Request.Context(), c.Writer)
+
+	components.Page(nh.Now(), models.Countries).Render(c.Request.Context(), c.Writer)
 	c.String(http.StatusOK, "Hello, world")
 }

@@ -1,9 +1,19 @@
 package models
 
+import "time"
+
 type Country struct {
 	Name       string
 	States     int64
 	Population int64
+}
+
+type NowHandler struct {
+	Now func() time.Time
+}
+
+func NewNowHandler(abhi func() time.Time) NowHandler {
+	return NowHandler{Now: abhi}
 }
 
 var Countries = []Country{
