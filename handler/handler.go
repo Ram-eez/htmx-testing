@@ -9,6 +9,9 @@ import (
 )
 
 func H1(c *gin.Context) {
+
+	components.Button_eg("click me").Render(c.Request.Context(), c.Writer)
+
 	view := components.CountryNames(models.Countries)
 	view.Render(c.Request.Context(), c.Writer)
 	c.String(http.StatusOK, "Hello, world")
