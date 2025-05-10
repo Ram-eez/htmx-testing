@@ -33,3 +33,23 @@ templ Page(t time.Time,countries []models.Country) {
     @TimeComponent(t)
     @TimeComponent(t)
 } 
+
+
+templ Top(name string) {
+    <div>
+        @Middle(name)
+    </div>
+}
+
+templ Middle(name string) {
+    <ul>
+        @Bottom(name)
+    </ul>
+}
+
+templ Bottom(name string) {
+    <li>
+        {name + " " +"works out"}
+    </li>
+}
+
