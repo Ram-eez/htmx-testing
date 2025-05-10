@@ -18,6 +18,10 @@ func H1(c *gin.Context) {
 	// view := components.CountryNames(models.Countries)
 	// view.Render(c.Request.Context(), c.Writer)
 
+	prop_dril := components.Top("rameez")
+
+	prop_dril.Render(c.Request.Context(), c.Writer)
+
 	components.Page(nh.Now(), models.Countries).Render(c.Request.Context(), c.Writer)
 	c.String(http.StatusOK, "Hello, world")
 }
