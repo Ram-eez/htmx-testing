@@ -53,6 +53,28 @@ templ ThemeName() {
 }
 
 
+type CountryWrapper struct {
+    models.Country
+}
+
+templ (c CountryWrapper) CountryMethod() {
+    <div>
+        Country: {c.Name}, States: {c.States}, Population: {c.Population}
+    </div>
+}
+
+templ Message() {
+    <div>
+        @CountryWrapper{
+            Country: models.Country{
+                Name: "India",
+                States: 12,
+                Population: 232,
+            },
+        }.CountryMethod()
+    </div>
+}
+
 
 // we can put many components into a single one and render it at once
 templ Page(t time.Time,countries []models.Country) {
