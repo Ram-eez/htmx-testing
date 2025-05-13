@@ -3,6 +3,7 @@ package handler
 import (
 	"HTMX/components"
 	"HTMX/models"
+	"context"
 	"net/http"
 	"time"
 
@@ -18,6 +19,9 @@ func H1(c *gin.Context) {
 	// view := components.CountryNames(models.Countries)
 	// view.Render(c.Request.Context(), c.Writer)
 
+	ctx := context.WithValue(context.Background(), models.ThemeContextKey, "dark")
+
+	components.ThemeName().Render(ctx, c.Writer)
 	prop_dril := components.Top("rameez")
 
 	prop_dril.Render(c.Request.Context(), c.Writer)

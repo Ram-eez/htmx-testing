@@ -25,19 +25,6 @@ templ Button_eg(text string) {
 templ TimeComponent(t time.Time) {
     <div>{ t.String() }</div>
 }
-
-
-
-// we can put many components into a single one and render it at once
-templ Page(t time.Time,countries []models.Country) {
-    @Button_eg("india")
-    @CountryNames(countries)
-    @TimeComponent(t)
-    @TimeComponent(t)
-} 
-
-
-
 // This is called prop drilling used to pass data from component to component, but its a bad practice 
 // Code becomes hard to refactor or touch 
 // Use with only 1-2 levels deep components
@@ -58,4 +45,22 @@ templ Bottom(name string) {
         {name + " " +"works out"}
     </li>
 }
+
+templ ThemeName() {
+    <div>
+        Theme : {ctx.Value(models.ThemeContextKey).(string)}
+    </div>
+}
+
+
+
+// we can put many components into a single one and render it at once
+templ Page(t time.Time,countries []models.Country) {
+    @Button_eg("india")
+    @CountryNames(countries)
+    @TimeComponent(t)
+    @TimeComponent(t)
+} 
+
+
 

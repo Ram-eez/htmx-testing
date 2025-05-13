@@ -16,6 +16,10 @@ func NewNowHandler(abhi func() time.Time) NowHandler {
 	return NowHandler{Now: abhi}
 }
 
+type ContextKey string
+
+var ThemeContextKey ContextKey = "theme"
+
 var Countries = []Country{
 	{
 		Name:       "india",
