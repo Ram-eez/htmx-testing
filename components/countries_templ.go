@@ -380,7 +380,7 @@ func (c CountryWrapper) CountryMethod() templ.Component {
 	})
 }
 
-func Message() templ.Component {
+func Message(country string, states int64, population int64) templ.Component {
 	return templruntime.GeneratedTemplate(func(templ_7745c5c3_Input templruntime.GeneratedComponentInput) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_W, ctx := templ_7745c5c3_Input.Writer, templ_7745c5c3_Input.Context
 		if templ_7745c5c3_CtxErr := ctx.Err(); templ_7745c5c3_CtxErr != nil {
@@ -407,9 +407,9 @@ func Message() templ.Component {
 		}
 		templ_7745c5c3_Err = CountryWrapper{
 			Country: models.Country{
-				Name:       "India",
-				States:     12,
-				Population: 232,
+				Name:       country,
+				States:     states,
+				Population: population,
 			},
 		}.CountryMethod().Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {

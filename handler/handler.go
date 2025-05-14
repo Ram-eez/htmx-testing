@@ -19,6 +19,8 @@ func H1(c *gin.Context) {
 	// view := components.CountryNames(models.Countries)
 	// view.Render(c.Request.Context(), c.Writer)
 
+	components.Message(models.Countries[1].Name, models.Countries[1].States, models.Countries[1].Population).Render(c.Request.Context(), c.Writer)
+
 	ctx := context.WithValue(context.Background(), models.ThemeContextKey, "dark")
 
 	components.ThemeName().Render(ctx, c.Writer)

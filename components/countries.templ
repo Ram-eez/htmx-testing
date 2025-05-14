@@ -63,13 +63,13 @@ templ (c CountryWrapper) CountryMethod() {
     </div>
 }
 
-templ Message() {
+templ Message(country string, states int64, population int64) {
     <div>
         @CountryWrapper{
             Country: models.Country{
-                Name: "India",
-                States: 12,
-                Population: 232,
+                Name: country,
+                States: states,
+                Population: population,
             },
         }.CountryMethod()
     </div>
