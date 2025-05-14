@@ -75,6 +75,17 @@ templ Message(country string, states int64, population int64) {
     </div>
 }
 
+templ CountryListComponent(model models.CountryListViewModel) {
+    if model.ErrorMessage != nil {
+        <div class="error">{model.ErrorMessage.Error()}</div>
+    } else {
+        <ul>
+            for _, country := range model.Countries {
+                 <li>{country.Name}</li>
+            }
+        </ul>
+    }
+}
 
 // we can put many components into a single one and render it at once
 templ Page(t time.Time,countries []models.Country) {
@@ -83,6 +94,3 @@ templ Page(t time.Time,countries []models.Country) {
     @TimeComponent(t)
     @TimeComponent(t)
 } 
-
-
-
