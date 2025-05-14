@@ -76,6 +76,7 @@ templ Message(country string, states int64, population int64) {
 }
 
 templ CountryListComponent(model models.CountryListViewModel) {
+    <div>
     if model.ErrorMessage != nil {
         <div class="error">{model.ErrorMessage.Error()}</div>
     } else {
@@ -85,6 +86,7 @@ templ CountryListComponent(model models.CountryListViewModel) {
             }
         </ul>
     }
+    </div>
 }
 
 // we can put many components into a single one and render it at once
