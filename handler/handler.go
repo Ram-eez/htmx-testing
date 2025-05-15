@@ -10,6 +10,8 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
+var count = 0
+
 func H1(c *gin.Context) {
 
 	nh := models.NewNowHandler(time.Now)
@@ -36,4 +38,13 @@ func H1(c *gin.Context) {
 
 	components.Page(nh.Now(), models.Countries).Render(c.Request.Context(), c.Writer)
 	c.String(http.StatusOK, "Hello, world")
+}
+
+func CounterExample(c *gin.Context) {
+	components.Layout(count).Render(c.Request.Context(), c.Writer)
+}
+
+func IncrementCount(c *gin.Context) {
+	count++
+	components.Counter(count).Render(c.Request.Context(), c.Writer)
 }
