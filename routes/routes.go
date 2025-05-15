@@ -7,5 +7,6 @@ import (
 )
 
 func RegisterRoutes(router *gin.Engine) {
+	router.Static("/static", "./static")
 	router.GET("/", handler.H1)
 }
