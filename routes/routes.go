@@ -12,4 +12,6 @@ func RegisterRoutes(router *gin.Engine) {
 
 	router.GET("/counter", handler.CounterExample)
 	router.POST("/increment", handler.IncrementCount)
+
+	router.GET("/stream", handler.StreamComponent)
 }

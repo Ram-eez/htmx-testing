@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/a-h/templ"
 	"github.com/gin-gonic/gin"
 )
 
@@ -47,4 +48,9 @@ func CounterExample(c *gin.Context) {
 func IncrementCount(c *gin.Context) {
 	count++
 	components.Counter(count).Render(c.Request.Context(), c.Writer)
+}
+
+func StreamComponent(c *gin.Context) {
+	countries := models.Countries
+	templ.Handler(components.StreamPage(countries), templ.WithStreaming()).ServeHTTP(c.Writer, c.Request)
 }

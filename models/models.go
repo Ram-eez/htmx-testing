@@ -50,22 +50,22 @@ var ThemeContextKey ContextKey = "theme"
 var Countries = []Country{
 	{
 		Name:       "india",
-		States:     28,
+		States:     1,
 		Population: 293892,
 	},
 	{
 		Name:       "india1",
-		States:     28,
+		States:     2,
 		Population: 293892,
 	},
 	{
 		Name:       "india2",
-		States:     28,
+		States:     3,
 		Population: 293892,
 	},
 	{
 		Name:       "india3",
-		States:     28,
+		States:     4,
 		Population: 293892,
 	},
 }

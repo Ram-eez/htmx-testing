@@ -1,24 +1,39 @@
 package components
 
 import "HTMX/models"
+import "HTMX/utils"
 
 
-templ Slot(name string) {
-    <slot name="{name}">
-        <div>Loading {name}</div>
+
+templ Slot(Name string, States int64) {
+    <slot name="{Name}">
+        <div>Loading {States}</div>
     </slot>
 }
 
-templ StreamPage(data []models.Country) {
+
+templ StreamPage(countries []models.Country) {
     <html>
         <head>
             <title>Streaming with structs</title>
         </head>
 
         <body>
-            // for _, country := range data {
-                    
-            // } 
+            @templ.Flush() {
+                <template shadowrootmode="open">
+                    for _, country := range countries {
+                        @Slot(country.Name, country.States)
+                    }
+                </template>
+            }
+        
+            for _, country := range countries {
+                @templ.Flush() {
+                    <h1 slot="{country.Name}">{ country.Name }</h1>
+                }
+                {{utils.Sleep(2)}}
+            }
+       
         </body>
     </html>
 }
