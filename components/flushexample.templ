@@ -6,8 +6,8 @@ import "HTMX/utils"
 
 
 templ Slot(Name string, States int64) {
-    <slot name="{Name}">
-        <div>Loading {States}</div>
+    <slot name={ Name }>
+        <div>Loading country with {States} states</div>
     </slot>
 }
 
@@ -29,7 +29,10 @@ templ StreamPage(countries []models.Country) {
         
             for _, country := range countries {
                 @templ.Flush() {
-                    <h1 slot="{country.Name}">{ country.Name }</h1>
+                    
+                    <div slot={ country.Name }>
+                        <h1>{ country.Name }</h1>
+                    </div>
                 }
                 {{utils.Sleep(2)}}
             }
