@@ -1,0 +1,24 @@
+package components
+
+import "HTMX/models"
+
+
+templ Slot(name string) {
+    <slot name="{name}">
+        <div>Loading {name}</div>
+    </slot>
+}
+
+templ StreamPage(data []models.Country) {
+    <html>
+        <head>
+            <title>Streaming with structs</title>
+        </head>
+
+        <body>
+            // for _, country := range data {
+                    
+            // } 
+        </body>
+    </html>
+}
