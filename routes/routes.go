@@ -14,4 +14,7 @@ func RegisterRoutes(router *gin.Engine) {
 	router.POST("/increment", handler.IncrementCount)
 
 	router.GET("/stream", handler.StreamComponent)
+
+	router.POST("/mouse", handler.Mouse_entered)
+	router.GET("/mouseexample", handler.ShowMousePage)
 }

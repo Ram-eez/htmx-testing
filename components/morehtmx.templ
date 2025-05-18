@@ -1,0 +1,25 @@
+package components
+
+import "HTMX/models"
+
+
+templ MouseEntered(countries []models.Country) {
+    for _, country := range countries {
+    <p>{ country.Name + "\n" }</p>
+    }
+}
+
+templ MouseHere() {
+    <html>
+        <head>
+            <script src="/static//js/htmx.min.js"></script>
+            <title>mouse here</title>
+        </head>
+        <body>
+            <h1>MouseHere example</h1>
+            <div hx-post="/mouse" hx-trigger="mouseenter once" hx-swap="outerHTML">
+                [Here Mouse, Mouse!]
+            </div>
+        </body>
+    </html>
+}

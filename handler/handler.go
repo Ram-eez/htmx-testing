@@ -22,6 +22,8 @@ func H1(c *gin.Context) {
 	// view := components.CountryNames(models.Countries)
 	// view.Render(c.Request.Context(), c.Writer)
 
+	Mouse_entered(c)
+
 	countries, err := models.GetCountries("country")
 
 	vm := models.NewCountryListViewModel(countries, err)
@@ -53,4 +55,12 @@ func IncrementCount(c *gin.Context) {
 func StreamComponent(c *gin.Context) {
 	countries := models.Countries
 	templ.Handler(components.StreamPage(countries), templ.WithStreaming()).ServeHTTP(c.Writer, c.Request)
+}
+
+func Mouse_entered(c *gin.Context) {
+	components.MouseEntered(models.Countries).Render(c.Request.Context(), c.Writer)
+}
+
+func ShowMousePage(c *gin.Context) {
+	components.MouseHere().Render(c.Request.Context(), c.Writer)
 }
