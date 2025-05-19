@@ -1,0 +1,13 @@
+package components
+
+templ Layout(children ...templ.Component) {
+    <html>
+        <head>
+            <script src="/static/js/htmx.min.js"></script>
+            <title>HTMX examples</title>
+        </head>
+        <body>
+            { children... }
+        </body>
+    </html>
+}

@@ -7,17 +7,3 @@ templ Counter(count int) {
         <button type="submit">+1</button>
     </form>
 }
-
-templ Layout(count int) {
-    <html>
-        <head>
-            <script src="/static/js/htmx.min.js"></script>
-            <title>Simple counter</title>
-        </head>
-
-        <body>
-            <h1>Counter example</h1>
-            @Counter(count)
-        </body>
-    </html>
-}

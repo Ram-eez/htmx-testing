@@ -43,14 +43,9 @@ func H1(c *gin.Context) {
 	c.String(http.StatusOK, "Hello, world")
 }
 
-func CounterExample(c *gin.Context) {
-	components.Layout(count).Render(c.Request.Context(), c.Writer)
-}
-
-func IncrementCount(c *gin.Context) {
-	count++
-	components.Counter(count).Render(c.Request.Context(), c.Writer)
-}
+// func CounterExample(c *gin.Context) {
+// 	components.Layout(count).Render(c.Request.Context(), c.Writer)
+// }
 
 func StreamComponent(c *gin.Context) {
 	countries := models.Countries
@@ -63,4 +58,15 @@ func Mouse_entered(c *gin.Context) {
 
 func ShowMousePage(c *gin.Context) {
 	components.MouseHere().Render(c.Request.Context(), c.Writer)
+}
+
+func IncrementCount(c *gin.Context) {
+	count++
+	components.Counter(count).Render(c.Request.Context(), c.Writer)
+}
+
+func RenderPage(c *gin.Context) {
+	c.Status(200)
+	c.Header("Content-Type", "text/html")
+	components.Layout(components.Counter(count)).Render(c.Request.Context(), c.Writer)
 }
